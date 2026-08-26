@@ -14,4 +14,16 @@ if __name__ == "__main__":
 
         write_to_csv(clientes, OUTPUT_CLIENTES)
 
+        ciudad = ""
+        clientes_map = {}
+        for cliente in clientes:
+            ciudad_cliente = cliente["ciudad"]
+            if ciudad != ciudad_cliente:
+                ciudad = ciudad_cliente
+                clientes_map[ciudad_cliente] = 0
+            clientes_map[ciudad_cliente] += 1
+        for k, v in clientes_map.items():
+            print(f"Hay {v} clientes en {k}.")
+
+
     print("El scraping de clientes ha finalizado.")

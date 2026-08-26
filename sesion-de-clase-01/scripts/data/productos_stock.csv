@@ -1,0 +1,12 @@
+codigo,nombre,precio,stock,calificacion
+PROD-001,Apple iPhone 15 Pro Max 256GB,S/5599.00,18,4
+PROD-003,Samsung Galaxy S24 Ultra 512GB,S/5299.00,15,4
+PROD-007,Google Pixel 8 128GB,S/2899.00,12,4
+PROD-010,OnePlus 12 256GB,S/3299.00,10,4
+PROD-011,Apple MacBook Air M2 13 pulgadas 256GB,S/4999.00,14,4
+PROD-012,Apple MacBook Pro 14 pulgadas M3 512GB,S/8999.00,8,5
+PROD-013,Dell XPS 13 9340 Intel Core i7,S/6499.00,9,4
+PROD-016,ASUS ROG Strix G16 RTX 4060,S/7499.00,7,5
+PROD-017,Lenovo Legion 5 Pro RTX 4070,S/8299.00,6,4
+PROD-019,HP Omen 16 RTX 4060,S/6999.00,8,4
+PROD-020,Lenovo ThinkPad E14 Gen 5,S/3499.00,16,3

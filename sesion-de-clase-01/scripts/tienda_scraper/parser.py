@@ -9,11 +9,15 @@ def parse_productos(soup: BeautifulSoup):
         codigo_tag = fila.select_one("td:nth-child(1)")
         nombre_tag = fila.select_one("td:nth-child(2)")
         precio_tag = fila.select_one("td:nth-child(4)")
+        stock_tag = fila.select_one("td:nth-child(5)")
+        calificacion_tag = fila.select_one("td:nth-child(6)")
 
         productos.append({
             "codigo": codigo_tag.get_text(strip=True) if codigo_tag else None,
             "nombre": nombre_tag.get_text(strip=True) if nombre_tag else None,
             "precio": precio_tag.get_text(strip=True) if precio_tag else None,
+            "stock": int(stock_tag.get_text(strip=True)) if stock_tag else None,
+            "calificacion": int(calificacion_tag.get_text(strip=True)[-2:-1]) if calificacion_tag else None,
         })
 
     return productos
@@ -26,12 +30,16 @@ def parse_clientes(soup: BeautifulSoup):
     for fila in soup.select("table tbody tr"):
         nombre_tag = fila.select_one("td:nth-child(1)")
         apellidos_tag = fila.select_one("td:nth-child(2)")
+        email_tag = fila.select_one("td:nth-child(4)")
         ciudad_tag = fila.select_one("td:nth-child(5)")
+        pais_tag = fila.select_one("td:nth-child(6)")
 
         clientes.append({
             "nombre": nombre_tag.get_text(strip=True) if nombre_tag else None,
             "apellidos": apellidos_tag.get_text(strip=True) if apellidos_tag else None,
+            "email": email_tag.get_text(strip=True) if email_tag else None,
             "ciudad": ciudad_tag.get_text(strip=True) if ciudad_tag else None,
+            "pais": pais_tag.get_text(strip=True) if pais_tag else None,
         })
 
     return clientes
@@ -56,7 +64,7 @@ def parse_resenas_entrega(soup: BeautifulSoup):
         resenas.append({
             "autor": autor_tag.get_text(strip=True) if autor_tag else None,
             "producto": producto,
-            "calificacion": resena.get("data-calificacion"),
+            "calificacion": int(resena.get("data-calificacion")),
             "comentario": comentario_tag.get_text(strip=True) if comentario_tag else None,
         })
 

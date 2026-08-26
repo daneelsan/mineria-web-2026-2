@@ -13,9 +13,16 @@ if __name__ == "__main__":
             print(f"La orden en {URL_ORDEN} no tiene resenas de entrega. "
                   "Prueba con otro ORDEN_ID en tienda_scraper/config.py.")
 
+        promedio = 0.
         for resena in resenas:
             print(resena["autor"], "-", resena["producto"], "-", resena["calificacion"])
             print(" ", resena["comentario"])
+            promedio += resena["calificacion"]
+
+        promedio = promedio / len(resenas)
+        print(f"El promedio de la calificacion es {promedio}")
+
+        resenas = [r for r in resenas if int(r["calificacion"]) >= 4]
 
         write_to_csv(resenas, OUTPUT_RESENAS_ENTREGA)
 
